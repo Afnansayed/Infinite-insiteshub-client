@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 import {  FaGoogle } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
@@ -7,7 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const LogIn = () => {
     const { logIn, googleLog } = useContext(AuthContext);
-    
+    const location = useLocation();
+    const navigate = useNavigate();
     const handleLogIn = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -19,6 +20,7 @@ const LogIn = () => {
             .then(res => {
                 console.log(res.user);
                 toast.success('LogIn successFully');
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error)
@@ -32,6 +34,7 @@ const LogIn = () => {
         googleLog()
             .then(res => {
                 console.log(res.user);
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error)

@@ -3,6 +3,8 @@ import Main from "../Layouts/Main/Main";
 import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register";
 import LogIn from "../Pages/LogIn/LogIn";
+import AddBlog from "../Pages/AddBlog/AddBlog";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +20,9 @@ const router = createBrowserRouter([
         },{
             path:'/register',
             element: <Register/>
+        },{
+            path:'/addBlog',
+            element: <PrivateRoute><AddBlog/></PrivateRoute> 
         }
       ]
     },
