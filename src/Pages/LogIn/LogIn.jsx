@@ -1,47 +1,70 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
-
+import {  FaGoogle } from "react-icons/fa";
 
 const LogIn = () => {
-    const {name} = useContext(AuthContext);
-    console.log(name)
+    const { logIn, googleLog } = useContext(AuthContext);
+
     const handleLogIn = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
         const password = form.get('password');
-       // console.log(email,password)
-         
+        // console.log(email,password)
+        //authentication
+        logIn(email, password)
+            .then(res => {
+                console.log(res.user);
+            })
+            .catch(error => {
+                console.error(error)
+            })
+
+
+    }
+    const handleGoogle = () => {
+        //googleLog
+        googleLog()
+            .then(res => {
+                console.log(res.user);
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
     return (
         <div className="hero min-h-screen bg-sky-100">
-        <div className=" w-[70%]">
-            <div className=" card shrink-0  shadow-2xl bg-sky-500 ">
-                <form onSubmit={handleLogIn} className="card-body">
-                    
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Email</span>
-                        </label>
-                        <input type="email" placeholder="email" className="input input-bordered" name="email" required />
+            <div className=" w-[70%]">
+                <div className=" card btn-block shrink-0  shadow-2xl bg-sky-500 ">
+                    <div className="flex flex-col justify-center gap-3 mt-3 items-center">
+                        <p className="btn btn-block bg-sky-100 hover:bg-red-100 w-[50%]" onClick={handleGoogle}><FaGoogle className="text-blue-900" /></p>
+                        <p className="text-center text-xl font-semibold text-[#fff]">Google Log In</p>
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Password</span>
-                        </label>
-                        <input type="password" placeholder="password" className="input input-bordered" name="password" required />
-                    </div>
-                    <div className="form-control mt-6 lg:col-span-2">
-                        <button className="btn bg-blue-100 hover:bg-red-300 text-blue-900 font-bold ">Login</button>
-                    </div>
-                </form>
-                {/* <p className="text-green-600 text-center mb-5"></p>
+                    <form onSubmit={handleLogIn} className="card-body">
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input type="email" placeholder="email" className="input input-bordered" name="email" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                            </label>
+                            <input type="password" placeholder="password" className="input input-bordered" name="password" required />
+                        </div>
+                        <div className="form-control mt-6 lg:col-span-2">
+                            <button className="btn bg-blue-100 hover:bg-red-100 text-blue-900 font-bold ">Login</button>
+                        </div>
+                    </form>
+                    {/* <p className="text-green-600 text-center mb-5"></p>
                 <p className="text-red-600 text-center mb-5"></p> */}
-                <p className="pb-5 text-center">If you do not have an account please <Link to='/login' className="text-[#fff]">Register</Link></p>
+                    <p className="pb-5 text-center">If you do not have an account please <Link to='/register' className="text-[#fff]">Register</Link></p>
+                </div>
             </div>
         </div>
-    </div>
     );
 };
 

@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext);
     const handleRegister = e =>{
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -10,6 +13,14 @@ const Register = () => {
         const password = form.get('password');
         const photo = form.get('photo');
         console.log(name,email,photo,password)
+        //authentication
+        createUser(email,password)
+        .then(res => {
+            console.log(res.user);
+        })
+        .catch(error => {
+            console.error(error)
+        })
     }
     return (
         <div className="hero min-h-screen bg-sky-100">
