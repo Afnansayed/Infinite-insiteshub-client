@@ -2,11 +2,20 @@ import { Link } from "react-router-dom";
 
 
 const Register = () => {
+    const handleRegister = e =>{
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const name = form.get('name');
+        const email = form.get('email');
+        const password = form.get('password');
+        const photo = form.get('photo');
+        console.log(name,email,photo,password)
+    }
     return (
         <div className="hero min-h-screen bg-sky-100">
         <div className=" w-[70%]">
             <div className=" card shrink-0  shadow-2xl bg-sky-500 ">
-                <form className="card-body grid grid-cols-1 lg:grid-cols-2">
+                <form onSubmit={handleRegister} className="card-body grid grid-cols-1 lg:grid-cols-2">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>
