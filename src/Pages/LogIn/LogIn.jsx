@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 import {  FaGoogle } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LogIn = () => {
     const { logIn, googleLog } = useContext(AuthContext);
-
+    
     const handleLogIn = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -16,9 +18,11 @@ const LogIn = () => {
         logIn(email, password)
             .then(res => {
                 console.log(res.user);
+                toast.success('LogIn successFully');
             })
             .catch(error => {
                 console.error(error)
+                toast.error(error.message)
             })
 
 
@@ -64,6 +68,7 @@ const LogIn = () => {
                     <p className="pb-5 text-center">If you do not have an account please <Link to='/register' className="text-[#fff]">Register</Link></p>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
