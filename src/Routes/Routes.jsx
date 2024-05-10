@@ -5,6 +5,7 @@ import Register from "../Pages/Register/Register";
 import LogIn from "../Pages/LogIn/LogIn";
 import AddBlog from "../Pages/AddBlog/AddBlog";
 import PrivateRoute from "./PrivateRoute";
+import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         },{
             path:'/addBlog',
             element: <PrivateRoute><AddBlog/></PrivateRoute> 
+        },{
+          path: '/details/:id',
+          element: <PrivateRoute><ViewDetails/></PrivateRoute>,
+          loader: ({params}) => fetch(`http://localhost:5000/allBlogs/${params.id}`)
         }
       ]
     },

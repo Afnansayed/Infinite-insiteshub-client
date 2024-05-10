@@ -1,8 +1,11 @@
+import RecentBlogs from "../../components/RecentBlogs/RecentBlogs";
 
 const Home = () => {
     return (
         <div>
-            <h2 className="text-center text-5xl">This is home</h2>
+            <div>
+                <RecentBlogs/>
+            </div>
         </div>
     );
 };
