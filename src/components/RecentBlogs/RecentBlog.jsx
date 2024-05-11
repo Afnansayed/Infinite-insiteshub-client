@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const RecentBlog = ({blog}) => {
      const{_id,photo,title,shortDescription,category} = blog;
     return (
-        <article className="flex flex-col dark:bg-gray-50">
+        <article className="flex flex-col dark:bg-gray-50  hover:scale-125 ">
                     <a rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
                         <img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src={photo} />
                     </a>
