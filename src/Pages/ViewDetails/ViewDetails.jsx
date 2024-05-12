@@ -29,7 +29,7 @@ const ViewDetails = () => {
             axios.post('http://localhost:5000/allComments',commentInfo)
             .then(res => {
                 console.log(res.data)
-                setOpinion([...opinion,res.data]);
+                //setOpinion([...opinion,res.data]);
             })
     }
 
@@ -39,7 +39,7 @@ const ViewDetails = () => {
         .then(res => {
             setOpinion(res.data);
         })
-    },[])
+    },[opinion])
     return (
         <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-sky-100 dark:text-gray-800">
             <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
@@ -62,7 +62,7 @@ const ViewDetails = () => {
                     </div>
                     <div className="flex justify-around">
                     {
-                        userEmail === email &&  <Link><button type="button" className="px-8 py-2 bg-blue-500 hover:bg-sky-500 font-semibold border rounded dark:border-gray-800 dark:text-[#fff] t">Update</button></Link>
+                        userEmail === email &&  <Link to={`/update/${_id}`}><button type="button" className="px-8 py-2 bg-blue-500 hover:bg-sky-500 font-semibold border rounded dark:border-gray-800 dark:text-[#fff] t">Update</button></Link>
                       }
                     </div>
                      
@@ -75,7 +75,6 @@ const ViewDetails = () => {
                             }
                             <input type="submit"  className="bg-blue-700 btn-block rounded-lg text-[#fff] p-2 cursor-pointer" value='submit' />
                           </div>
-                          
                         </form>
                         <div>
                              {

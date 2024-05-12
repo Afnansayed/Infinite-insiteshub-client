@@ -6,6 +6,7 @@ import LogIn from "../Pages/LogIn/LogIn";
 import AddBlog from "../Pages/AddBlog/AddBlog";
 import PrivateRoute from "./PrivateRoute";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
+import Update from "../Pages/Update/Update";
 
 const router = createBrowserRouter([
     {
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
           path: '/details/:id',
           element: <PrivateRoute><ViewDetails/></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/allBlogs/${params.id}`)
-        }
+        },{
+          path: '/update/:id',
+          element: <PrivateRoute><Update/></PrivateRoute>,
+          loader: ({params}) => fetch(`http://localhost:5000/allBlogs/${params.id}`)
+        },
       ]
     },
   ]);
