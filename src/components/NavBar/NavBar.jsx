@@ -11,11 +11,14 @@ const NavBar = () => {
                     <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>Home</NavLink></li>
                     {/* no2 */}
                     <li><NavLink to='/addBlog' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>Add Blog</NavLink></li>
+                    {/* no3 */}
+                    <li><NavLink to='/allBlog' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>All Blogs</NavLink></li>
+                {/* no4 */}
                     {
                         !user && 
                         <li><NavLink to='/login' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>LogIn</NavLink></li>
                     }
-                   {/* no3 */}
+                   {/* no5 */}
                    {
                     !user &&  <li><NavLink to='/register' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>Register</NavLink></li>
                    }

@@ -7,6 +7,8 @@ import AddBlog from "../Pages/AddBlog/AddBlog";
 import PrivateRoute from "./PrivateRoute";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import Update from "../Pages/Update/Update";
+import AllBlogs from "../Pages/AllBlogs/AllBlogs";
+
 
 const router = createBrowserRouter([
     {
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
         },{
             path:'/addBlog',
             element: <PrivateRoute><AddBlog/></PrivateRoute> 
+        },
+        {
+          path: '/allBlog',
+          element: <AllBlogs/>
         },{
           path: '/details/:id',
           element: <PrivateRoute><ViewDetails/></PrivateRoute>,

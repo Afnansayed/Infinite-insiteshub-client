@@ -1,9 +1,12 @@
-import { useLoaderData } from "react-router-dom";
+import axios from "axios";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 
 const Update = () => {
     const updateAbleData = useLoaderData();
-    const { photo, title, shortDescription, longDescription, email,name,category} = updateAbleData;
+
+    const navigate  = useNavigate();
+    const { _id,photo, title, shortDescription, longDescription, email,name,category} = updateAbleData;
     //console.log(data)
 const handleUpdate = e => {
     e.preventDefault();
@@ -16,7 +19,12 @@ const handleUpdate = e => {
         const name = form.get('name');
         const email = form.get('email');
         const updatedBlog = {title,photo,category,shortDescription,longDescription,email,name}
-        console.log(updatedBlog);
+        //console.log(updatez)
+        axios.put(`http://localhost:5000/allBlogs/${_id}`,updatedBlog)
+        .then(res => {
+            navigate( `/details/${_id}` )
+            console.log(res.data)
+        })
 }
 
     return (
