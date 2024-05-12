@@ -31,11 +31,11 @@ const router = createBrowserRouter([
         },
         {
           path: '/allBlog',
-          element: <AllBlogs/>
+          element: <PrivateRoute><AllBlogs/></PrivateRoute> 
         },
         {
           path: '/wishList',
-          element: <WishList/>
+          element:  <PrivateRoute><WishList/></PrivateRoute>
         },{
           path: '/details/:id',
           element: <PrivateRoute><ViewDetails/></PrivateRoute>,

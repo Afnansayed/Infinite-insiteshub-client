@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom";
 import PropType from 'prop-types'
+import axios from "axios";
 
 const Wish = ({wish}) => {
-    const {photo,title,shortDescription,category,createAt} = wish;
+    const {_id,photo,title,shortDescription,category,createAt} = wish;
+
+    //delete from wish list
+    const handleDelete = id =>{
+        console.log(id);
+
+        axios.delete(`http://localhost:5000/allWishes/${id}`)
+        .then(res => {
+            console.log(res.data)
+        })
+    }
     return (
         <div className="max-w-lg mx-auto p-4 shadow-md dark:bg-gray-50 dark:text-gray-800">
         <div className="space-y-4">
@@ -21,7 +32,7 @@ const Wish = ({wish}) => {
             </div>
             <div className="flex justify-around ">
                <Link><button type="button" className="px-8 py-3 font-semibold rounded dark:bg-gray-800 dark:text-gray-100 hover:bg-gray-100 hover:text-blue-400">Details</button></Link> 
-               <button type="button" className="px-8 py-3 font-semibold rounded dark:bg-gray-800 dark:text-gray-100 hover:bg-gray-100 hover:text-blue-400">Delete</button>
+               <button onClick={()=>handleDelete(_id)} type="button" className="px-8 py-3 font-semibold rounded dark:bg-gray-800 dark:text-gray-100 hover:bg-gray-100 hover:text-blue-400">Delete</button>
             </div>
         </div>
     </div>
