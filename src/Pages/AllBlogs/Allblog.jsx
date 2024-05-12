@@ -19,7 +19,7 @@ const Allblog = ({ data }) => {
         .then(res => {  
           console.log(res.data);
           if(res.data){
-              Swal.fire("SweetAlert2 is working!");
+              Swal.fire("Added in Wish List");
           }
         
         })

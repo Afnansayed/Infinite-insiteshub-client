@@ -19,8 +19,10 @@ const RecentBlog = ({blog}) => {
                         <p className='font-extrabold text-green-500'>{category}</p>
                         <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
                          <Link to={`/details/${_id}`}><button type="button" className="px-5 py-2 hover:bg-red-100 font-semibold border rounded dark:border-gray-800 dark:text-gray-800">Details</button></Link>   
-                      
-                        <button type="button" className="px-5 py-2 hover:bg-red-100 font-semibold border rounded dark:border-gray-800 dark:text-gray-800">Wish List</button>
+                      <Link to='/wishList'>
+                      <button type="button" className="px-5 py-2 hover:bg-red-100 font-semibold border rounded dark:border-gray-800 dark:text-gray-800">Wish List</button>
+                      </Link>
+                       
                         </div>
                     </div>
                 </article>
