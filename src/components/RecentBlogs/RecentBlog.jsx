@@ -1,7 +1,10 @@
 import propType from 'prop-types'
 import { Link } from 'react-router-dom';
 
+
+
 const RecentBlog = ({blog}) => {
+  
      const{_id,photo,title,shortDescription,category} = blog;
     return (
         <article className="flex flex-col dark:bg-gray-50  hover:scale-125 ">
