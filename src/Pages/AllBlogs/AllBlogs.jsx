@@ -2,38 +2,52 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Allblog from "./Allblog";
 
- 
+
 
 const AllBlogs = () => {
-         const [allData,setAllData] = useState([]);
-         const [filter,setFilter] = useState('');
-         useEffect(() =>{
-             axios.get(`http://localhost:5000/allBlogs?category=${filter}`)
-             .then(res => {
+    const [allData, setAllData] = useState([]);
+    const [filter, setFilter] = useState('');
+    const [search, setSearch] = useState('');
+    useEffect(() => {
+        axios.get(`http://localhost:5000/allBlogs?category=${filter}`)
+            .then(res => {
                 setAllData(res.data)
-             })
-         },[filter])
+            })
+    }, [filter])
+    console.log(search)
     return (
-        <div>
-
-              <div className="w-[10%] mx-auto">  
-                    <select onChange={e => setFilter(e.target.value)} id="category" name="category"  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2">
-                        <option  value="">All</option>
-                        <option  value="Technology">Technology</option>
-                        <option value="Science">Science</option>
-                        <option value="Health">Health</option>
-                        <option value="Travel">Travel</option>
-                        {/* Add more options as needed */}
-                    </select>
-              </div>
-              <div className="space-y-5">
+        <div className="">
+            <div className="flex justify-between gap-5  bg-gray-200 py-4 ">
+                <select onChange={e => setFilter(e.target.value)} id="category" name="category" className="mt-1 block w-[30%] rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2">
+                    <option value="">All</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Science">Science</option>
+                    <option value="Health">Health</option>
+                    <option value="Travel">Travel</option>
+                    {/* Add more options as needed */}
+                </select>
+                <fieldset onChange={e => setSearch(e.target.value)} className="w-full space-y-1 dark:text-gray-800">
+                    <label htmlFor="Search" className="hidden">Search</label>
+                    <div className="relative">
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                            <button type="button" title="search" className="p-1 focus:outline-none focus:ring">
+                                <svg fill="currentColor" viewBox="0 0 512 512" className="w-4 h-4 dark:text-gray-800">
+                                    <path d="M479.6,399.716l-81.084-81.084-62.368-25.767A175.014,175.014,0,0,0,368,192c0-97.047-78.953-176-176-176S16,94.953,16,192,94.953,368,192,368a175.034,175.034,0,0,0,101.619-32.377l25.7,62.2L400.4,478.911a56,56,0,1,0,79.2-79.195ZM48,192c0-79.4,64.6-144,144-144s144,64.6,144,144S271.4,336,192,336,48,271.4,48,192ZM456.971,456.284a24.028,24.028,0,0,1-33.942,0l-76.572-76.572-23.894-57.835L380.4,345.771l76.573,76.572A24.028,24.028,0,0,1,456.971,456.284Z"></path>
+                                </svg>
+                            </button>
+                        </span>
+                        <input type="search" name="Search" placeholder="Search..." className="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none dark:bg-gray-100 dark:text-gray-800 focus:dark:bg-gray-50 focus:dark:border-violet-600" />
+                    </div>
+                </fieldset>
+            </div>
+            <div className="space-y-5 mt-4">
                 {
                     allData.map(data => <Allblog
-                     key={data._id}
-                     data={data}
+                        key={data._id}
+                        data={data}
                     ></Allblog>)
                 }
-              </div>
+            </div>
         </div>
     );
 };
