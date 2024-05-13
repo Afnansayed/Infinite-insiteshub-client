@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../Providers/AuthProviders';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Review = () => {
     const [rating, setRating] = useState(0);
-
+    const {user} = useContext(AuthContext);
+    const userEmail = user?.email;
+    const userName = user?.displayName;
+    const userImage = user?.photoURL;
     const handleRatingClick = (value) => {
         setRating(value);
     };
@@ -10,8 +16,16 @@ const Review = () => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const feedback = form.get('feedback');
-    console.log(feedback,rating)
-     
+    const feedbackData={feedback,rating,userEmail,userName,userImage};
+    
+    //send to server
+     axios.post('http://localhost:5000/allReview',feedbackData)
+     .then(res => {
+       // console.log(res.data)
+        if(res.data){
+            Swal.fire("Thank for your valuable opinion");
+        }
+     })
    }
     return (
         <div className='bg-sky-100 rounded-lg p-5'>
