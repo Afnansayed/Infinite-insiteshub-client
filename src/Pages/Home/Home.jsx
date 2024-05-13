@@ -1,3 +1,4 @@
+import NewsLetter from "../../components/Comments/NewsLetter/NewsLetter";
 import RecentBlogs from "../../components/RecentBlogs/RecentBlogs";
 
 const Home = () => {
@@ -5,6 +6,9 @@ const Home = () => {
         <div>
             <div>
                 <RecentBlogs/>
+            </div>
+            <div className="mt-6">
+                <NewsLetter/>
             </div>
         </div>
     );
