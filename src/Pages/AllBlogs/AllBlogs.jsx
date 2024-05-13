@@ -9,11 +9,11 @@ const AllBlogs = () => {
     const [filter, setFilter] = useState('');
     const [search, setSearch] = useState('');
     useEffect(() => {
-        axios.get(`http://localhost:5000/allBlogs?category=${filter}`)
+        axios.get(`http://localhost:5000/allBlogs?category=${filter}&title=${search}`)
             .then(res => {
                 setAllData(res.data)
             })
-    }, [filter])
+    }, [filter,search])
     console.log(search)
     return (
         <div className="">
