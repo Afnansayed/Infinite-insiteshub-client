@@ -7,6 +7,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 const WishList = () => {
     const { user } = useContext(AuthContext);
     const [wishedData, setWishedData] = useState([]);
+    const [time,setTime] = useState('');
     const currentUser = user?.email;
     const axiosSecure = useAxiosSecure();
     useEffect(() => {
@@ -14,11 +15,12 @@ const WishList = () => {
         //     .then(res => {
         //         setWishedData(res.data)
         //     })
-        axiosSecure.get(`/allWishes?userEmail=${currentUser}`)
+        axiosSecure.get(`/allWishes?userEmail=${currentUser}&time=${time}`)
             .then(res => {
                 setWishedData(res.data)
             })
-    }, [wishedData,axiosSecure])
+    }, [wishedData, axiosSecure,time])
+    console.log(time)
     return (
         <div className="bg-sky-100">
 
@@ -44,6 +46,15 @@ const WishList = () => {
                             <h3 className="font-semibold text-2xl">You Can See All Your Wishes Data Here</h3>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="flex justify-end mt-5">
+                <div className="mb-4 w-[40%] lg:w-[25%] mr-5">
+                    <select onChange={e => setTime(e.target.value)} id="category" name="category" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-4">
+                        <option value="">Sort By Post</option>
+                        <option value="asc">Ascending</option>
+                        <option value="dsc">Descending</option>
+                    </select>
                 </div>
             </div>
             <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-5">

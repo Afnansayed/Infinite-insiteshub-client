@@ -17,8 +17,8 @@ const LogIn = () => {
         // console.log(email,password)
         //authentication
         logIn(email, password)
-            .then(res => {
-                console.log(res.user);
+            .then(() => {
+                //console.log(res.user);
                 toast.success('LogIn successFully');
                 navigate(location?.state ? location.state : '/');
             })
@@ -32,8 +32,8 @@ const LogIn = () => {
     const handleGoogle = () => {
         //googleLog
         googleLog()
-            .then(res => {
-                console.log(res.user);
+            .then(() => {
+               // console.log(res.user);
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
