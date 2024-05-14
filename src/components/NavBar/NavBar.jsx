@@ -30,10 +30,10 @@ const NavBar = () => {
            </>
 
 const handleLogOut = () => {
-    console.log('logOut')
+   // console.log('logOut')
     logOut()
         .then(() => {
-            console.log('signOut SuccessFul');
+            //console.log('signOut SuccessFul');
         })
         .catch(error => {
             console.error(error);

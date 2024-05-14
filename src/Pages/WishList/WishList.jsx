@@ -1,18 +1,24 @@
-import axios from "axios";
+// import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Wish from "./Wish";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const WishList = () => {
     const { user } = useContext(AuthContext);
     const [wishedData, setWishedData] = useState([]);
     const currentUser = user?.email;
+    const axiosSecure = useAxiosSecure();
     useEffect(() => {
-        axios.get(`http://localhost:5000/allWishes?userEmail=${currentUser}`)
+        // axios.get(`http://localhost:5000/allWishes?userEmail=${currentUser}`,{withCredentials: true})
+        //     .then(res => {
+        //         setWishedData(res.data)
+        //     })
+        axiosSecure.get(`/allWishes?userEmail=${currentUser}`)
             .then(res => {
                 setWishedData(res.data)
             })
-    }, [wishedData])
+    }, [wishedData,axiosSecure])
     return (
         <div className="bg-sky-100">
 
@@ -24,7 +30,7 @@ const WishList = () => {
                     <div className="flex flex-col space-y-4">
                         <div>
                             <h2 className="text-2xl font-semibold">{user?.displayName}</h2>
-                           
+
                         </div>
                         <div className="space-y-1">
                             <span className="flex items-center space-x-2">
@@ -40,15 +46,15 @@ const WishList = () => {
                     </div>
                 </div>
             </div>
-             <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-5">
                 {
-                wishedData.map(wish =>  <Wish 
-                key={wish._id}
-                wish={wish}
-                >  
-                </Wish>)
+                    wishedData.map(wish => <Wish
+                        key={wish._id}
+                        wish={wish}
+                    >
+                    </Wish>)
                 }
-             </div>
+            </div>
         </div>
     );
 };
