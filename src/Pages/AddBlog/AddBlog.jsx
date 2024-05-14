@@ -17,7 +17,8 @@ const AddBlog = () => {
         const longDescription = form.get('longDescription');
         const name = form.get('name');
         const email = form.get('email');
-        const blog = {title,photo,category,shortDescription,longDescription,email,name}
+        const authorImage = form.get('authorImage');
+        const blog = {title,photo,category,shortDescription,longDescription,email,name,authorImage}
        // console.log(blog)
 
         //post data base
@@ -45,7 +46,7 @@ const AddBlog = () => {
                     <input type="text" id="title" name="title"  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2" required />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="imageUrl" className="block text-gray-700">Image URL:</label>
+                    <label htmlFor="imageUrl" className="block text-gray-700">Blog Image:</label>
                     <input type="text" id="imageUrl" name="photo"  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2" required />
                 </div>
                 <div className="mb-4">
@@ -73,6 +74,10 @@ const AddBlog = () => {
                 <div className="mb-4">
                     <label htmlFor="title" className="block text-gray-700">Author Name</label>
                     <input type="text" defaultValue={user?.displayName} id="title" name="name"  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2" required />
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="title" className="block text-gray-700">Author Image</label>
+                    <input type="text" defaultValue={user?.photoURL} id="title" name="authorImage"  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2" required />
                 </div>
                 <button type="submit" className="w-full lg:col-span-2 bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">Submit</button>
             </form>

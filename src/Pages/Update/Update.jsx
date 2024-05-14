@@ -1,10 +1,12 @@
 import axios from "axios";
+import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 
 const Update = () => {
     const updateAbleData = useLoaderData();
-
+    const {user}  = useContext(AuthContext);
     const navigate  = useNavigate();
     const { _id,photo, title, shortDescription, longDescription, email,name,category} = updateAbleData;
     //console.log(data)
@@ -18,7 +20,8 @@ const handleUpdate = e => {
         const longDescription = form.get('longDescription');
         const name = form.get('name');
         const email = form.get('email');
-        const updatedBlog = {title,photo,category,shortDescription,longDescription,email,name}
+        const authorImage = form.get('authorImage');
+        const updatedBlog = {title,photo,category,shortDescription,longDescription,email,name,authorImage}
         //console.log(updatez)
         axios.put(`http://localhost:5000/allBlogs/${_id}`,updatedBlog)
         .then(res => {
@@ -65,6 +68,10 @@ const handleUpdate = e => {
                 <label htmlFor="title" className="block text-gray-700">Author Name</label>
                 <input defaultValue={name} type="text" id="title" name="name"  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2" required />
             </div>
+            <div className="mb-4">
+                    <label htmlFor="title" className="block text-gray-700">Author Image</label>
+                    <input type="text" defaultValue={user?.photoURL} id="title" name="authorImage"  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-2" required />
+                </div>
             <button type="submit" className="w-full lg:col-span-2 bg-indigo-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600">Update</button>
         </form>
     </div>
