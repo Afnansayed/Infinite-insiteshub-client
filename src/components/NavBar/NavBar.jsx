@@ -13,14 +13,16 @@ const NavBar = () => {
                     <li><NavLink to='/addBlog' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>Add Blog</NavLink></li>
                     {/* no3 */}
                     <li><NavLink to='/allBlog' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>All Blogs</NavLink></li>
-                    {/* no3 */}
+                    {/* no4 */}
                     <li><NavLink to='/wishList' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>Wish List</NavLink></li>
-                {/* no4 */}
+                    {/* no5 */}
+                    <li><NavLink to='/fetured' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>Featured Blogs</NavLink></li>
+                {/* no6 */}
                     {
                         !user && 
                         <li><NavLink to='/login' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>LogIn</NavLink></li>
                     }
-                   {/* no5 */}
+                   {/* no7 */}
                    {
                     !user &&  <li><NavLink to='/register' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>Register</NavLink></li>
                    }

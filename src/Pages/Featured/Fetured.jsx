@@ -14,7 +14,7 @@ const Fetured = () => {
            setSortedData(topTenData);
           })
      },[])
-     console.log(sortedData);
+    // console.log(sortedData);
 
     return (
         <div className="overflow-x-auto">
