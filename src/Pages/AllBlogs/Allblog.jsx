@@ -17,7 +17,7 @@ const Allblog = ({ data }) => {
        // console.log(wishData);
         axios.post(`http://localhost:5000/allWishes?title=${title}&userEmail=${userEmail}`,wishData)
         .then(res => {  
-          console.log(res.data);
+         // console.log(res.data);
           if(res.data){
               Swal.fire("Added in Wish List");
           }

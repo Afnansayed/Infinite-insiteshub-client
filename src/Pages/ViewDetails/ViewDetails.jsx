@@ -24,11 +24,11 @@ const ViewDetails = () => {
             commentWoner ,
             wonerPicture,
              fin};
-            console.log(commentInfo);
+            //console.log(commentInfo);
 
             axios.post('http://localhost:5000/allComments',commentInfo)
-            .then(res => {
-                console.log(res.data)
+            .then(() => {
+                //console.log(res.data)
                 //setOpinion([...opinion,res.data]);
             })
     }

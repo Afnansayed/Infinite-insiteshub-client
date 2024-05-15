@@ -40,13 +40,13 @@ const AuthProviders = ({children}) => {
                 
                 // console.log(loggedUser)
                   axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
-                      .then(res => {
-                          console.log('token response',res.data)
+                      .then(() => {
+                         // console.log('token response',res.data)
                       })
               }else{
                   axios.post('http://localhost:5000/logout',loggedUser,{withCredentials: true})
-                  .then(res => {
-                      console.log(res.data)
+                  .then(() => {
+                      //console.log(res.data)
                   })
               }
         })

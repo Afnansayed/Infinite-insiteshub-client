@@ -23,8 +23,8 @@ const AddBlog = () => {
 
         //post data base
         axios.post('http://localhost:5000/allBlogs',blog)
-        .then(res => {
-            console.log(res.data)
+        .then(() => {
+           // console.log(res.data)
              //sweet alert
             Swal.fire({
                 position: "center",

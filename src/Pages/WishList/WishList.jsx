@@ -20,7 +20,7 @@ const WishList = () => {
                 setWishedData(res.data)
             })
     }, [wishedData, axiosSecure,time])
-    console.log(time)
+   // console.log(time)
     return (
         <div className="bg-sky-100">
 

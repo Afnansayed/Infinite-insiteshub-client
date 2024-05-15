@@ -24,9 +24,9 @@ const handleUpdate = e => {
         const updatedBlog = {title,photo,category,shortDescription,longDescription,email,name,authorImage}
         //console.log(updatez)
         axios.put(`http://localhost:5000/allBlogs/${_id}`,updatedBlog)
-        .then(res => {
+        .then(() => {
             navigate( `/details/${_id}` )
-            console.log(res.data)
+            //console.log(res.data)
         })
 }
 

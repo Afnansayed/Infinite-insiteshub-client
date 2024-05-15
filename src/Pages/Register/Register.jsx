@@ -18,7 +18,7 @@ const Register = () => {
         const email = form.get('email');
         const password = form.get('password');
         const photo = form.get('photo');
-        console.log(name, email, photo, password)
+        //console.log(name, email, photo, password)
 
         setError('')
         setSuccess('')
@@ -34,7 +34,7 @@ const Register = () => {
         //authentication
         createUser(email, password)
             .then(res => {
-                console.log(res.user);
+                //  console.log(res.user);
                 updateProfile(res.user,{
                     displayName: name,
                     photoURL: photo,    

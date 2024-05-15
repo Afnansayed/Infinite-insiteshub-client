@@ -14,7 +14,7 @@ const AllBlogs = () => {
                 setAllData(res.data)
             })
     }, [filter,search])
-    console.log(search)
+   // console.log(search)
     return (
         <div className="">
             <div className="flex justify-between gap-5  bg-gray-200 py-4 ">
