@@ -22,7 +22,7 @@ const AddBlog = () => {
        // console.log(blog)
 
         //post data base
-        axios.post('http://localhost:5000/allBlogs',blog)
+        axios.post('https://assignment-11-server-eosin-six.vercel.app/allBlogs',blog)
         .then(() => {
            // console.log(res.data)
              //sweet alert

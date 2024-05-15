@@ -45,11 +45,11 @@ const router = createBrowserRouter([
         },{
           path: '/details/:id',
           element: <PrivateRoute><ViewDetails/></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/allBlogs/${params.id}`)
+          loader: ({params}) => fetch(`https://assignment-11-server-eosin-six.vercel.app/allBlogs/${params.id}`)
         },{
           path: '/update/:id',
           element: <PrivateRoute><Update/></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/allBlogs/${params.id}`)
+          loader: ({params}) => fetch(`https://assignment-11-server-eosin-six.vercel.app/allBlogs/${params.id}`)
         },
       ]
     },

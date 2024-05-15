@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import PropType from 'prop-types'
 
-const TableRow = ({fea}) => {
+const TableRow = ({fea,idx}) => {
     const {_id,authorImage,email,name,title} = fea;
     return (
         <tr>
         <th>
-           01
+           {idx + 1}
         </th>
         <td>
           <div className="flex items-center gap-3">
@@ -31,6 +31,7 @@ const TableRow = ({fea}) => {
     );
 };
 TableRow.propTypes={
-    fea:PropType.object
+    fea:PropType.object,
+    idx:PropType.number
 }
 export default TableRow;

@@ -9,7 +9,7 @@ const Wish = ({ wish }) => {
     const handleDelete = id => {
         //console.log(id);
 
-        axios.delete(`http://localhost:5000/allWishes/${id}`)
+        axios.delete(`https://assignment-11-server-eosin-six.vercel.app/allWishes/${id}`)
             .then(() => {
                 // console.log(res.data)
             })

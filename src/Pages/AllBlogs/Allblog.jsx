@@ -15,7 +15,7 @@ const Allblog = ({ data }) => {
           photo,title,shortDescription,category,userEmail
         }
        // console.log(wishData);
-        axios.post(`http://localhost:5000/allWishes?title=${title}&userEmail=${userEmail}`,wishData)
+        axios.post(`https://assignment-11-server-eosin-six.vercel.app/allWishes?title=${title}&userEmail=${userEmail}`,wishData)
         .then(res => {  
          // console.log(res.data);
           if(res.data){
