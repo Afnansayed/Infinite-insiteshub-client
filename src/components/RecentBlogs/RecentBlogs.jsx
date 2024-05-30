@@ -5,7 +5,7 @@ import RecentBlog from "./RecentBlog";
 const RecentBlogs = () => {
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
-        axios.get('https://assignment-11-server-eosin-six.vercel.app/allBlogs')
+        axios.get('http://localhost:5500/allBlogs')
             .then(res => {
                 setBlogs(res.data)
             })

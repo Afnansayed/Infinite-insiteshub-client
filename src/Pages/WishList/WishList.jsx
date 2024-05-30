@@ -11,7 +11,7 @@ const WishList = () => {
     const currentUser = user?.email;
     const axiosSecure = useAxiosSecure();
     useEffect(() => {
-        // axios.get(`https://assignment-11-server-eosin-six.vercel.app/allWishes?userEmail=${currentUser}`,{withCredentials: true})
+        // axios.get(`http://localhost:5500/allWishes?userEmail=${currentUser}`,{withCredentials: true})
         //     .then(res => {
         //         setWishedData(res.data)
         //     })

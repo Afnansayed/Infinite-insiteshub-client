@@ -11,6 +11,7 @@ import AllBlogs from "../Pages/AllBlogs/AllBlogs";
 import WishList from "../Pages/WishList/WishList";
 import Error from "../components/Error/Error";
 import Fetured from "../Pages/Featured/Fetured";
+import Transelator from "../Pages/Transelator/Transelator";
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,9 @@ const router = createBrowserRouter([
             path:'/register',
             element: <Register/>
         },{
+          path:'/transelator',
+          element:<Transelator/>
+        },{
             path:'/addBlog',
             element: <PrivateRoute><AddBlog/></PrivateRoute> 
         },
@@ -45,11 +49,11 @@ const router = createBrowserRouter([
         },{
           path: '/details/:id',
           element: <PrivateRoute><ViewDetails/></PrivateRoute>,
-          loader: ({params}) => fetch(`https://assignment-11-server-eosin-six.vercel.app/allBlogs/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5500/allBlogs/${params.id}`)
         },{
           path: '/update/:id',
           element: <PrivateRoute><Update/></PrivateRoute>,
-          loader: ({params}) => fetch(`https://assignment-11-server-eosin-six.vercel.app/allBlogs/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5500/allBlogs/${params.id}`)
         },
       ]
     },

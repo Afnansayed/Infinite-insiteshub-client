@@ -26,7 +26,8 @@ const NavBar = () => {
                    {
                     !user &&  <li><NavLink to='/register' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>Register</NavLink></li>
                    }
-                    
+                   {/* n07 */}
+                   <li><NavLink to='/transelator' className={({ isActive }) => isActive ? 'text-red-400 font-bold border-red-700 border-2 p-2' : 'font-bold border-1'}>Transelator</NavLink></li>
            </>
 
 const handleLogOut = () => {

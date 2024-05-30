@@ -6,7 +6,7 @@ import Opinion from "./Opinion";
 const UserExperiences = () => {
        const [feedback,setFeedback] = useState([]);
        useEffect(()=>{
-                axios.get('https://assignment-11-server-eosin-six.vercel.app/allReview')
+                axios.get('http://localhost:5500/allReview')
                 .then(res => {
                     setFeedback(res.data);
                 })

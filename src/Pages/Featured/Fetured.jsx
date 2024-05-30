@@ -6,7 +6,7 @@ import TableRow from "./TableRow";
 const Fetured = () => {
      const [sortedData,setSortedData] = useState([]);
      useEffect(()=>{
-          axios.get('https://assignment-11-server-eosin-six.vercel.app/allBlogs')
+          axios.get('http://localhost:5500/allBlogs')
           .then(res => {
             const data = res.data;
             data.sort((a, b) => b.longDescription.length - a.longDescription.length);

@@ -39,12 +39,12 @@ const AuthProviders = ({children}) => {
              if (currentUser) {
                 
                 // console.log(loggedUser)
-                  axios.post('https://assignment-11-server-eosin-six.vercel.app/jwt', loggedUser, { withCredentials: true })
+                  axios.post('http://localhost:5500/jwt', loggedUser, { withCredentials: true })
                       .then(() => {
                          // console.log('token response',res.data)
                       })
               }else{
-                  axios.post('https://assignment-11-server-eosin-six.vercel.app/logout',loggedUser,{withCredentials: true})
+                  axios.post('http://localhost:5500/logout',loggedUser,{withCredentials: true})
                   .then(() => {
                       //console.log(res.data)
                   })

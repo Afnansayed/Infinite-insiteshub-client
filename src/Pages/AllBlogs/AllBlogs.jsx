@@ -9,7 +9,7 @@ const AllBlogs = () => {
     const [filter, setFilter] = useState('');
     const [search, setSearch] = useState('');
     useEffect(() => {
-        axios.get(`https://assignment-11-server-eosin-six.vercel.app/allBlogs?category=${filter}&title=${search}`)
+        axios.get(`http://localhost:5500/allBlogs?category=${filter}&title=${search}`)
             .then(res => {
                 setAllData(res.data)
             })

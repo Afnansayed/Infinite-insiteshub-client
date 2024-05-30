@@ -19,7 +19,7 @@ const Review = () => {
     const feedbackData={feedback,rating,userEmail,userName,userImage};
     
     //send to server
-     axios.post('https://assignment-11-server-eosin-six.vercel.app/allReview',feedbackData)
+     axios.post('http://localhost:5500/allReview',feedbackData)
      .then(res => {
        // console.log(res.data)
         if(res.data){

@@ -26,7 +26,7 @@ const ViewDetails = () => {
              fin};
             //console.log(commentInfo);
 
-            axios.post('https://assignment-11-server-eosin-six.vercel.app/allComments',commentInfo)
+            axios.post('http://localhost:5500/allComments',commentInfo)
             .then(() => {
                 //console.log(res.data)
                 //setOpinion([...opinion,res.data]);
@@ -35,7 +35,7 @@ const ViewDetails = () => {
 
     //get comment data from data base
     useEffect(() => {
-        axios.get(`https://assignment-11-server-eosin-six.vercel.app/allComments?fin=${fin}`)
+        axios.get(`http://localhost:5500/allComments?fin=${fin}`)
         .then(res => {
             setOpinion(res.data);
         })
